@@ -1,50 +1,25 @@
 {
-  "description": "Languages, frameworks, and infrastructure from my work.",
+  "description": "Tools and technologies I use to build software, connected devices, and reliable systems.",
   "groups": [
     {
-      "name": "Languages",
+      "name": "Backend & Web",
       "icon": "mingcute:code-line",
-      "items": ["Python", "TypeScript", "JavaScript", "SQL", "Bash", "R"]
+      "items": ["Python", "FastAPI", "Next.js", "TypeScript", "JavaScript", "PostgreSQL"]
     },
     {
-      "name": "AI & ML",
-      "icon": "mingcute:ai-line",
-      "items": [
-        "LLM",
-        "prompt engineering",
-        "evaluation",
-        "agents",
-        "RAG",
-        "Fine-tuning",
-        "PyTorch",
-        "Hugging Face ecosystem",
-        "Unsloth",
-        "Inspect AI"
-      ]
+      "name": "IoT & Hardware",
+      "icon": "mingcute:chip-line",
+      "items": ["Raspberry Pi", "Arduino", "IoT sensors", "Bambu Lab X1", "FreeCAD"]
     },
     {
-      "name": "Backend & Data",
+      "name": "Infrastructure",
       "icon": "mingcute:server-line",
-      "items": [
-        "FastAPI",
-        "Flask",
-        "Express.js",
-        "REST APIs",
-        "PostgreSQL",
-        "SQLite",
-        "ClickHouse",
-        "Prisma"
-      ]
+      "items": ["Computer networks", "Apache Superset", "Microsoft Azure", "Entra ID", "CCNA"]
     },
     {
-      "name": "Frontend & Product",
-      "icon": "mingcute:layout-line",
-      "items": ["React", "Astro", "Next.js", "Tailwind CSS", "shadcn/ui"]
-    },
-    {
-      "name": "DevOps",
+      "name": "Collaboration",
       "icon": "mingcute:terminal-box-line",
-      "items": ["Git", "Docker", "CI/CD", "Vercel", "Railway"]
+      "items": ["Git", "Teamwork", "Project coordination", "English"]
     }
   ]
 }

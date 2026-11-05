@@ -1,56 +1,60 @@
 [
   {
-    "id": "digital-society-2025",
-    "category": "research",
-    "title": "Research Fellow",
-    "org": "Center for Digital Society, Example University",
-    "orgUrl": "https://example.edu/research/digital-society",
-    "startDate": "2025-09",
-    "location": "Example City",
-    "description": "Studies how automated systems shape access to public information, with an emphasis on transparent evaluation and reproducible research."
+    "id": "datacenter-support-2025",
+    "category": "work",
+    "title": "Datacenter Systems Support",
+    "org": "Datové centrum Ústeckého kraje",
+    "startDate": "2025-06",
+    "endDate": "2026-08",
+    "location": "Ústí nad Labem",
+    "description": "Supported datacenter systems and worked with Apache Superset in a public-sector data environment."
   },
   {
-    "id": "open-methods-2024",
-    "category": "research",
-    "title": "Graduate Research Assistant",
-    "org": "Open Methods Lab, Example University",
-    "orgUrl": "https://example.edu/research/open-methods",
-    "startDate": "2024-01",
-    "endDate": "2025-08",
-    "location": "Example City",
-    "description": "Built documented data pipelines and evaluation tools for collaborative computational social science projects."
+    "id": "esn-web-admin-2026",
+    "category": "volunteering",
+    "title": "Web Project Administrator",
+    "org": "ESN Usti",
+    "startDate": "2026-07",
+    "location": "Ústí nad Labem",
+    "description": "Coordinates web-related work for a student organisation and helps move digital projects forward."
   },
   {
-    "id": "civic-data-2023",
-    "category": "research",
-    "title": "Data Science Research Intern",
-    "org": "Civic Data Collaborative",
-    "orgUrl": "https://research.example.org/civic-data",
-    "startDate": "2023-06",
-    "endDate": "2023-09",
-    "location": "Remote",
-    "description": "Developed quality checks for public datasets and contributed reproducible notebooks to an open research toolkit."
-  },
-  {
-    "id": "responsible-computing-2024",
-    "category": "teaching",
-    "title": "Teaching Assistant, Responsible Computing",
-    "org": "Example University",
-    "orgUrl": "https://example.edu",
+    "id": "it-intern-2024",
+    "category": "work",
+    "title": "IT Intern",
+    "org": "Krajská zdravotní, a.s.",
     "startDate": "2024-09",
-    "endDate": "2025-05",
-    "location": "Example City",
-    "description": "Led discussion sections on data ethics, algorithmic accountability, and communicating uncertainty."
+    "endDate": "2025-04",
+    "location": "Ústí nad Labem",
+    "description": "Installed network hardware, worked with Bambu Lab X1 3D printing, and created FreeCAD models during practical IT training."
   },
   {
-    "id": "example-university-2024",
-    "category": "education",
-    "title": "M.S. in Computational Social Science",
-    "org": "Example University",
-    "orgUrl": "https://example.edu",
-    "startDate": "2022-09",
+    "id": "backend-developer-2022",
+    "category": "work",
+    "title": "Student Backend Developer",
+    "org": "Datové centrum Ústeckého kraje",
+    "startDate": "2022-03",
+    "endDate": "2024-12",
+    "location": "Ústí nad Labem",
+    "description": "Worked on backend development in Python and collaborated with a team on software for a public data organisation."
+  },
+  {
+    "id": "application-developer-2024",
+    "category": "work",
+    "title": "Application Developer",
+    "org": "CodeAlley",
+    "startDate": "2024-05",
     "endDate": "2024-05",
-    "location": "Example City",
-    "description": "Coursework included statistical modeling, machine learning, research design, and data visualization."
+    "location": "Hybrid",
+    "description": "Worked with Amazon Web Services while developing a Next.js application in a team environment."
+  },
+  {
+    "id": "ujep-computer-technology-2025",
+    "category": "education",
+    "title": "Bachelor's degree, Computer Technology",
+    "org": "Jan Evangelista Purkyně University in Ústí nad Labem",
+    "startDate": "2025-08",
+    "location": "Ústí nad Labem",
+    "description": "Current studies focused on computer technology and computer systems."
   }
 ]

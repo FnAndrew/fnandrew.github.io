@@ -1,0 +1,12 @@
+---
+import CommonLayout from "@/layouts/CommonLayout.astro"
+import { Content as NowContent } from "@/content/now.md"
+---
+
+<CommonLayout
+  title="Currently"
+  description="What Ondřej Krucký is studying, building, and working on right now."
+  breadcrumbs={[{ label: "Currently", icon: "update" }]}
+>
+  <NowContent />
+</CommonLayout>

@@ -1,0 +1,30 @@
+[
+  {
+    "title": "CCNA: Switching, Routing, and Wireless Essentials",
+    "issuer": "Cisco",
+    "issued": "2024-01",
+    "expires": null,
+    "skill": "Computer networks"
+  },
+  {
+    "title": "Základy kybernetické bezpečnosti 25",
+    "issuer": "National Office for Cyber and Information Security",
+    "issued": "2025-02",
+    "expires": "2027-02",
+    "skill": "Cybersecurity"
+  },
+  {
+    "title": "Cambridge English: First",
+    "issuer": "University of Cambridge",
+    "issued": "2025-01",
+    "expires": null,
+    "skill": "English"
+  },
+  {
+    "title": "Kurz lezení na umělé stěně pro pedagogy",
+    "issuer": "Jan Evangelista Purkyně University in Ústí nad Labem",
+    "issued": "2024-02",
+    "expires": null,
+    "skill": "Additional training"
+  }
+]

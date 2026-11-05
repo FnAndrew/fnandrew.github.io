@@ -1,14 +1,20 @@
 ---
-title: Responsible Computing Workshop
-description: A reusable workshop series combining short lectures, practical exercises, and open teaching materials.
-fromDate: 2025-02
-toDate: 2025-06
+title: School Information System
+description: Full-stack school information system built with Next.js, FastAPI, PostgreSQL, and Azure.
+fromDate: 2024-09
+toDate: 2025-03
 types:
-  - coursework
+  - product
 skills:
-  - Teaching
-  - Curriculum design
+  - Next.js
+  - Python FastAPI
+  - PostgreSQL
+  - Microsoft Azure
+  - Entra ID
+  - Git
+selected: true
 ---
 
-Use project entries for teaching, community work, software, or research. The
-taxonomy separates what a project is from the methods and tools it uses.
+The system was developed as a collaborative school project. It combines a
+Next.js frontend, Python FastAPI backend, PostgreSQL, and Microsoft Azure with
+Entra ID authentication.

@@ -1,0 +1,53 @@
+---
+import CommonLayout from "@/layouts/CommonLayout.astro"
+import Card from "@/components/base/card/Card.astro"
+import CardContent from "@/components/base/card/CardContent.astro"
+import CardGroup from "@/components/base/card/CardGroup.astro"
+import CardHeader from "@/components/base/card/CardHeader.astro"
+import CardTitle from "@/components/base/card/CardTitle.astro"
+import Badge from "@/components/base/Badge.astro"
+import certifications from "@/content/certifications.json"
+
+const formatMonth = (date: string) =>
+  new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(
+    new Date(`${date}-01T00:00:00Z`),
+  )
+---
+
+<CommonLayout
+  title="Certifications"
+  description="Selected certifications and additional training completed by Ondřej Krucký."
+  breadcrumbs={[{ label: "Certifications", icon: "research" }]}
+  prose={false}
+>
+  <CardGroup columns={2}>
+    {certifications.map((certification) => (
+      <Card as="article" padding="compact">
+        <CardHeader>
+          <CardTitle>{certification.title}</CardTitle>
+          <p class="certification-issuer">{certification.issuer}</p>
+        </CardHeader>
+        <CardContent>
+          <p class="certification-meta">
+            Issued {formatMonth(certification.issued)}
+            {certification.expires && ` · Expires ${formatMonth(certification.expires)}`}
+          </p>
+          <Badge variant="muted">{certification.skill}</Badge>
+        </CardContent>
+      </Card>
+    ))}
+  </CardGroup>
+</CommonLayout>
+
+<style>
+  .certification-issuer,
+  .certification-meta {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
+  .certification-meta {
+    margin-block-end: var(--space-2xs);
+  }
+</style>

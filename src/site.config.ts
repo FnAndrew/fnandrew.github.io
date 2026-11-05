@@ -9,7 +9,7 @@ import type {
 export const SITE: SiteConfig = {
   title: "Ondřej Krucký",
   description:
-    "Personal portfolio and projects showcase.",
+    "Backend, IoT, infrastructure, and software projects by Ondřej Krucký.",
   href: "https://kruckyondrej.cz",
   author: "Ondřej Krucký",
   dir: "ltr",
@@ -17,7 +17,7 @@ export const SITE: SiteConfig = {
   defaultPostImage: "/img/social-preview.png",
 
   locale: {
-    lang: "en-US",
+    lang: "cs-CZ",
     options: {
       day: "numeric",
       month: "short",
@@ -30,15 +30,15 @@ export const SITE: SiteConfig = {
   tocMaxDepth: 3,
 
   blog: {
-    featuredPostCount: 3,
+    featuredPostCount: 0,
     postsPerPage: 8,
     shareActions: ["x"],
   },
 
   home: {
     careerHighlightCount: 4,
-    updateCount: 3,
-    publicationCount: 3,
+    updateCount: 0,
+    publicationCount: 0,
   },
 
   favicon: "/favicon.ico",
@@ -53,7 +53,7 @@ export const SITE: SiteConfig = {
 
 export const PROFILE: ProfileConfig = {
   name: SITE.title,
-  tagline: "Personal portfolio and projects",
+  tagline: "Backend, IoT & infrastructure developer",
   links: {
     github: "https://github.com/FnAndrew",
     linkedin: "https://www.linkedin.com/in/ond%C5%99ej-kruck%C3%BD-b5a009263/"
@@ -68,8 +68,9 @@ export const PROFILE: ProfileConfig = {
 
 export const NAV_LINKS: LinkConfig[] = [
   { href: "/projects", label: "Projects" },
-  { href: "/publications", label: "Publications" },
-  { href: "/teaching", label: "Teaching" },
+  { href: "/experience", label: "Experience" },
+  { href: "/now", label: "Currently" },
+  { href: "/certifications", label: "Certifications" },
   { href: "/blog", label: "Blog" },
 ]
 

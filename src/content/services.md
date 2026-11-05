@@ -1,6 +1,6 @@
-I welcome conversations about:
+I am interested in conversations about:
 
-- reproducible research workflows;
-- accessible technical communication;
-- teaching with open data; and
-- maintaining small scholarly software projects.
+- backend and web application development;
+- IoT prototypes and connected devices;
+- computer networks and infrastructure; and
+- collaborative software projects.

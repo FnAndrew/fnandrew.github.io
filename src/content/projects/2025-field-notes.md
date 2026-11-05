@@ -1,16 +1,17 @@
 ---
-title: Interactive Field Notes
-description: A static-first collection of linked observations, figures, and short research updates.
-fromDate: 2025-08
-toDate: 2025-12
+title: Connect Guardian
+description: Full-stack IoT project connecting sensors and devices with a web interface.
+fromDate: 2023-09
+toDate: 2024-06
 types:
-  - tool
-  - open-source
+  - product
 skills:
-  - Astro
-  - TypeScript
-  - Information design
+  - IoT
+  - Raspberry Pi
+  - Arduino
+  - Web development
+selected: true
 ---
 
-This example shows how a small scholarly tool can connect project notes, blog
-posts, and updates while keeping the source in ordinary Markdown.
+Connect Guardian is a full-stack IoT project for working with sensors and
+connected devices. It combines physical computing with a web application.

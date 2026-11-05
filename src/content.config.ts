@@ -105,7 +105,7 @@ const updates = defineCollection({
 const experience = defineCollection({
   loader: file("./src/content/experience.json"),
   schema: z.object({
-    category: z.enum(["research", "education", "teaching"]),
+    category: z.enum(["work", "education", "volunteering"]),
     title: z.string(),
     org: z.string(),
     orgUrl: z.url().optional(),

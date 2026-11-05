@@ -11,9 +11,16 @@ import CardGroup from "@/components/base/card/CardGroup.astro"
 import PreviewCard from "@/components/blog/PreviewCard.astro"
 import Section from "@/components/layout/Section.astro"
 import Profile from "@/components/profile/Profile.astro"
+import ProjectRow from "@/components/projects/ProjectRow.astro"
+import TechStack from "@/components/projects/TechStack.astro"
 import PubCard from "@/components/publications/PubCard.astro"
 import ExperienceTimeline from "@/components/timeline/ExperienceTimeline.astro"
 import UpdatesInline from "@/components/timeline/UpdatesInline.astro"
+import Badge from "@/components/base/Badge.astro"
+import certifications from "@/content/certifications.json"
+import { Content as NowContent } from "@/content/now.md"
+import techStack from "@/content/tech-stack.json"
+import { getProjects } from "@/lib/projects"
 
 import {
   Content as MiscContent,
@@ -36,10 +43,10 @@ const {
 
 const careerHighlights =
   careerHighlightCount > 0 ? await getCollection("experience") : []
-const cvHref =
-  typeof PROFILE.links.cv === "object"
-    ? PROFILE.links.cv?.href
-    : PROFILE.links.cv
+const selectedProjects = (await getProjects((project) => project.data.selected)).slice(
+  0,
+  3,
+)
 const renderedUpdates =
   updateCount > 0 ? await getLatestUpdates(updateCount) : []
 const selectedPublications =
@@ -58,6 +65,20 @@ const recentPostsMetadata = await Promise.all(
 
 <Layout title="Home">
   <Profile profile={PROFILE} />
+
+  <Section title="Currently" moreLink="/now">
+    <div class="currently-content">
+      <NowContent />
+    </div>
+  </Section>
+
+  {selectedProjects.length > 0 && (
+      <Section title="Selected projects" moreLink="/projects" moreText="see all →">
+        <div class="selected-projects">
+          {selectedProjects.map((project) => <ProjectRow {project} />)}
+        </div>
+      </Section>
+    )}
 
   {renderedUpdates.length > 0 && (
       <Section title="Latest updates" moreLink="/now">
@@ -79,7 +100,7 @@ const recentPostsMetadata = await Promise.all(
     )}
 
   {careerHighlights.length > 0 && (
-      <Section title="Career highlights" moreLink={cvHref} moreText="see CV →">
+      <Section title="Experience" moreLink="/experience" moreText="full timeline →">
         <ExperienceTimeline
           entries={careerHighlights}
           limit={careerHighlightCount}
@@ -87,6 +108,20 @@ const recentPostsMetadata = await Promise.all(
         />
       </Section>
     )}
+
+  <Section title="Certifications" moreLink="/certifications" moreText="see all →">
+    <ul class="certification-list">
+      {certifications.slice(0, 3).map((certification) => (
+        <li>
+          <div>
+            <strong>{certification.title}</strong>
+            <span>{certification.issuer}</span>
+          </div>
+          <Badge variant="muted">{certification.skill}</Badge>
+        </li>
+      ))}
+    </ul>
+  </Section>
 
   {recentPostsMetadata.length > 0 && (
       <Section title="Latest posts">
@@ -108,6 +143,10 @@ const recentPostsMetadata = await Promise.all(
       </Section>
     )}
 
+  <Section title="Tech stack" moreLink="/projects" moreText="explore projects →">
+    <TechStack {...techStack} />
+  </Section>
+
   {hasServices && (
       <Section title="Services">
         <prose-content>
@@ -128,6 +167,57 @@ const recentPostsMetadata = await Promise.all(
 <style>
   .selected-publications {
     gap: var(--space-s);
+  }
+
+  .selected-projects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .currently-content :global(p) {
+    max-inline-size: 68ch;
+    margin-block: 0 var(--space-2xs);
+  }
+
+  .currently-content :global(p:last-child) {
+    margin-block-end: 0;
+  }
+
+  .certification-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .certification-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding-block: var(--space-2xs);
+    border-block-end: 1px solid var(--border);
+  }
+
+  .certification-list li > div {
+    display: grid;
+    gap: var(--space-3xs);
+  }
+
+  .certification-list span {
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
+  @media (width < 40rem) {
+    .certification-list li {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-3xs);
+    }
   }
 
   .latest-posts-list {

@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content"
+
+import CommonLayout from "@/layouts/CommonLayout.astro"
+import ExperienceTimeline from "@/components/timeline/ExperienceTimeline.astro"
+
+const entries = await getCollection("experience")
+---
+
+<CommonLayout
+  title="Experience"
+  description="Work, volunteering, and education in software development, infrastructure, and computer technology."
+  breadcrumbs={[{ label: "Experience", icon: "timeline" }]}
+  prose={false}
+>
+  <ExperienceTimeline entries={entries} />
+</CommonLayout>

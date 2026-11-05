@@ -1,7 +1,7 @@
 [mychiffon]
 id       = "kruckyo"
 name     = "Ondřej Krucký"
-bio      = "Personal portfolio and projects showcase"
+bio      = "Backend, IoT, infrastructure, and software projects"
 
 [mychiffon.links]
 website = "https://kruckyondrej.cz"

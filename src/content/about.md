@@ -1,7 +1,6 @@
-I study how computational systems shape public knowledge and collective
-decision-making. My work combines **open data**, reproducible analysis, and
-human-centered evaluation.
+I am a computer technology student and developer based in Ústí nad Labem. I
+build practical software, connected devices, and reliable technical systems.
 
-This site is generic demonstration content for Astro Scholar. Replace the
-profile, publications, projects, and writing with your own work through the
-Markdown-first customization surfaces documented in the repository.
+My work sits between **backend development**, **IoT**, and **infrastructure**:
+from Python services and web applications to Raspberry Pi, Arduino, computer
+networks, and data-centre support.

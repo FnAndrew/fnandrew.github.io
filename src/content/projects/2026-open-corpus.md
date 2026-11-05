@@ -1,20 +1,15 @@
 ---
-title: Open Research Corpus
-description: A reproducible pipeline for assembling and documenting a small multilingual research corpus.
+title: Practical Systems Lab
+description: Personal experiments combining backend services, networked devices, and technical infrastructure.
 fromDate: 2026-01
 types:
-  - research
-  - open-source
+  - tool
 skills:
   - Python
-  - Data curation
-  - Reproducible research
-selected: true
+  - Computer networks
+  - Raspberry Pi
+  - Automation
 ---
 
-This sample project demonstrates how to describe a research question, document
-methods, link artifacts, and surface a concise set of skills without relying on
-private institutional context.
-
-The project card and detail page are intentionally complete enough to serve as a
-template while remaining easy to replace.
+An ongoing space for documenting experiments and small tools around backend
+development, IoT, and infrastructure.
