@@ -1,0 +1,1 @@
+npm exec --yes --package=@biomejs/biome@2.5.2 -- biome format --write --staged --no-errors-on-unmatched
