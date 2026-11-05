@@ -43,10 +43,9 @@ const {
 
 const careerHighlights =
   careerHighlightCount > 0 ? await getCollection("experience") : []
-const selectedProjects = (await getProjects((project) => project.data.selected)).slice(
-  0,
-  3,
-)
+const selectedProjects = (
+  await getProjects((project) => project.data.selected)
+).slice(0, 3)
 const renderedUpdates =
   updateCount > 0 ? await getLatestUpdates(updateCount) : []
 const selectedPublications =
@@ -109,7 +108,11 @@ const recentPostsMetadata = await Promise.all(
       </Section>
     )}
 
-  <Section title="Certifications" moreLink="/certifications" moreText="see all →">
+  <Section
+    title="Certifications"
+    moreLink="/certifications"
+    moreText="see all →"
+  >
     <ul class="certification-list">
       {certifications.slice(0, 3).map((certification) => (
         <li>
@@ -143,7 +146,11 @@ const recentPostsMetadata = await Promise.all(
       </Section>
     )}
 
-  <Section title="Tech stack" moreLink="/projects" moreText="explore projects →">
+  <Section
+    title="Tech stack"
+    moreLink="/projects"
+    moreText="explore projects →"
+  >
     <TechStack {...techStack} />
   </Section>
 

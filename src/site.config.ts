@@ -56,7 +56,7 @@ export const PROFILE: ProfileConfig = {
   tagline: "Backend, IoT & infrastructure developer",
   links: {
     github: "https://github.com/FnAndrew",
-    linkedin: "https://www.linkedin.com/in/ond%C5%99ej-kruck%C3%BD-b5a009263/"
+    linkedin: "https://www.linkedin.com/in/ond%C5%99ej-kruck%C3%BD-b5a009263/",
   },
   highlightLinks: ["github", "linkedin"],
   linksPlacement: {

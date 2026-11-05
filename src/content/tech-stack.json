@@ -4,17 +4,36 @@
     {
       "name": "Backend & Web",
       "icon": "mingcute:code-line",
-      "items": ["Python", "FastAPI", "Next.js", "TypeScript", "JavaScript", "PostgreSQL"]
+      "items": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "PostgreSQL"
+      ]
     },
     {
       "name": "IoT & Hardware",
       "icon": "mingcute:chip-line",
-      "items": ["Raspberry Pi", "Arduino", "IoT sensors", "Bambu Lab X1", "FreeCAD"]
+      "items": [
+        "Raspberry Pi",
+        "Arduino",
+        "IoT sensors",
+        "Bambu Lab X1",
+        "FreeCAD"
+      ]
     },
     {
       "name": "Infrastructure",
       "icon": "mingcute:server-line",
-      "items": ["Computer networks", "Apache Superset", "Microsoft Azure", "Entra ID", "CCNA"]
+      "items": [
+        "Computer networks",
+        "Apache Superset",
+        "Microsoft Azure",
+        "Entra ID",
+        "CCNA"
+      ]
     },
     {
       "name": "Collaboration",
