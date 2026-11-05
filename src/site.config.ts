@@ -7,11 +7,11 @@ import type {
 } from "@/types"
 
 export const SITE: SiteConfig = {
-  title: "FnAndrew",
+  title: "Ondřej Krucký",
   description:
-    "Personal portfolio, projects, publications, and research notes.",
+    "Personal portfolio and projects showcase.",
   href: "https://kruckyondrej.cz",
-  author: "FnAndrew",
+  author: "Ondřej Krucký",
   dir: "ltr",
   defaultPageImage: "/img/social-preview.png",
   defaultPostImage: "/img/social-preview.png",
@@ -53,16 +53,16 @@ export const SITE: SiteConfig = {
 
 export const PROFILE: ProfileConfig = {
   name: SITE.title,
-  tagline: "Personal portfolio and research notes",
+  tagline: "Personal portfolio and projects",
   links: {
     github: "https://github.com/FnAndrew",
-    website: "https://kruckyondrej.cz/",
+    linkedin: "https://www.linkedin.com/in/ond%C5%99ej-kruck%C3%BD-b5a009263/"
   },
-  highlightLinks: ["github"],
+  highlightLinks: ["github", "linkedin"],
   linksPlacement: {
-    header: ["github", "website"],
+    header: ["github", "linkedin"],
     about: false,
-    footer: false,
+    footer: true,
   },
 }
 
@@ -82,9 +82,9 @@ export const PUB_CONFIG: PublicationConfig = {
   maxFirstAuthors: 6,
   maxLastAuthors: 1,
   highlightAuthor: {
-    firstName: "Alex",
-    lastName: "Morgan",
-    aliases: ["A. Morgan"],
+    firstName: "Ondřej",
+    lastName: "Krucký",
+    aliases: ["Ondřej K."],
   },
   equalSymbols: {
     first: "*",
