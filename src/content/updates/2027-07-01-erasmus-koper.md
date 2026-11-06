@@ -1,0 +1,1 @@
+Completion of Erasmus+ Mobility in Koper, Slovinia

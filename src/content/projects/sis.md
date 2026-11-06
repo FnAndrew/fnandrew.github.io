@@ -18,5 +18,4 @@ selected: true
 ---
 
 The system was developed as a collaborative school project. It combines a
-Next.js frontend, Python FastAPI backend, PostgreSQL, and Microsoft Azure with
-Entra ID authentication.
+Next.js frontend, Python FastAPI backend, PostgreSQL, Bakaláři API, and Microsoft Azure with Entra ID authentication.

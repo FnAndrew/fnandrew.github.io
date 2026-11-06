@@ -8,15 +8,21 @@ import {
 interface Props {
   /** Date to format */
   date: Date | string
+  /** Format as month and year only */
+  monthYear?: boolean
   /** Additional CSS classes */
   class?: string
 }
 
-const { date, class: className } = Astro.props
+const { date, monthYear = false, class: className } = Astro.props
 
 const dateObj = createLocalDate(date)
 const isoDate = formatDateTimeISO(dateObj)
-const displayDate = formatDate(dateObj)
+const displayDate = formatDate(
+  dateObj,
+  undefined,
+  monthYear ? { month: "long", year: "numeric", day: undefined } : undefined,
+)
 ---
 
 <time datetime={isoDate} class={className}>

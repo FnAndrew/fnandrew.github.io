@@ -1,0 +1,48 @@
+diff --git a/src/content/now.md b/src/content/now.md
+index 97b2b60..61a4808 100644
+--- a/src/content/now.md
++++ b/src/content/now.md
+@@ -1,7 +1,12 @@
+ I am currently studying **Computer Technology** at Jan Evangelista Purkyně
+-University in Ústí nad Labem and working on a portfolio focused on backend
+-development, IoT, and infrastructure.
++University in Ústí nad Labem and working as a **Web Project Administrator at ESN
++Usti**.
+ 
+-I also work as a **Web Project Administrator at ESN Usti**, where I help move
+-web and digital projects forward. I am especially interested in practical
+-systems that connect software with real devices and useful data.
+\ No newline at end of file
++Right now, I am:
++
++- Building backend projects and improving my understanding of infrastructure.
++- Exploring IoT systems that connect software with real devices and useful data.
++- Helping move web and digital projects forward at ESN Usti.
++- Developing this portfolio as a place for practical projects, experiments, and notes.
++
++## Timeline
+\ No newline at end of file
+diff --git a/src/pages/now.astro b/src/pages/now.astro
+index 33fde1f..e272f3e 100644
+--- a/src/pages/now.astro
++++ b/src/pages/now.astro
+@@ -1,12 +1,17 @@
+ ---
+ import CommonLayout from "@/layouts/CommonLayout.astro"
++import UpdatesTimeline from "@/components/timeline/UpdatesTimeline.astro"
++import { getLatestUpdates } from "@/lib/updates"
+ import { Content as NowContent } from "@/content/now.md"
++
++const renderedUpdates = await getLatestUpdates()
+ ---
+ 
+ <CommonLayout
+-  title="Currently"
+-  description="What Ondřej Krucký is studying, building, and working on right now."
++  title="What I'm doing now"
++  description="A sporadically updated log of what I am studying, building, and exploring."
+   breadcrumbs={[{ label: "Currently", icon: "update" }]}
+ >
+   <NowContent />
++  <UpdatesTimeline renderedUpdates={renderedUpdates} />
+ </CommonLayout>

@@ -1,9 +1,9 @@
 ---
 import type { RenderedUpdate } from "@/lib/updates"
-import FormattedDate from "@/components/base/FormattedDate.astro"
 import Timeline from "@/components/timeline/Timeline.astro"
 import TimelineDate from "@/components/timeline/TimelineDate.astro"
 import TimelineItem from "@/components/timeline/TimelineItem.astro"
+import UpdateDate from "@/components/timeline/UpdateDate.astro"
 
 import "@/styles/callout.css"
 
@@ -20,7 +20,11 @@ const { renderedUpdates, class: className, itemClass } = Astro.props
   {renderedUpdates.map((item) => (
     <TimelineItem>
       <TimelineDate slot="date">
-        <FormattedDate date={item.date} />
+        <UpdateDate
+          date={item.date}
+          endDate={item.endDate}
+          dateLabel={item.dateLabel}
+        />
       </TimelineDate>
       <prose-content class:list={["prose-sm", itemClass]}>
         <item.Content />

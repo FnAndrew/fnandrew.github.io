@@ -1,0 +1,38 @@
+---
+import FormattedDate from "@/components/base/FormattedDate.astro"
+import { formatDateRange, formatDateTimeISO } from "@/lib/date-utils"
+
+interface Props {
+  date: Date
+  endDate?: Date
+  dateLabel?: string
+}
+
+const { date, endDate, dateLabel } = Astro.props
+const range = endDate
+  ? formatDateRange(date, endDate, {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    })
+  : null
+---
+
+{dateLabel ? (
+  <time datetime={formatDateTimeISO(date)}>{dateLabel}</time>
+) : range ? (
+  range.map(({ text, dateTime, isSeparator }) =>
+    dateTime ? (
+      <time datetime={dateTime}>{text}</time>
+    ) : isSeparator ? (
+      <>
+        <span aria-hidden="true">{text}</span>
+        <span class="sr-only"> to </span>
+      </>
+    ) : (
+      <span>{text}</span>
+    ),
+  )
+) : (
+  <FormattedDate date={date} monthYear />
+)}

@@ -4,6 +4,8 @@ import { createLocalDate, extractDateFromStr } from "./date-utils"
 
 export interface RenderedUpdate {
   date: Date // from update id
+  endDate?: Date
+  dateLabel?: string
   Content: Awaited<ReturnType<typeof render>>["Content"]
 }
 
@@ -24,12 +26,12 @@ export async function getLatestUpdates(
   // Parse dates once and sort efficiently
   const updatesWithDates = allUpdates.map((update) => {
     const dateString = extractDateFromStr(update.id)!
-    const date = createLocalDate(dateString)
+    const date = update.data.startDate ?? createLocalDate(dateString)
     return { update, date, dateTime: date.getTime() }
   })
 
   // Sort by pre-computed timestamp
-  updatesWithDates.sort((a, b) => b.dateTime - a.dateTime)
+  updatesWithDates.sort((a, b) => a.dateTime - b.dateTime)
 
   // Slice early to avoid unnecessary processing
   const latestUpdatesWithDates =
@@ -39,7 +41,12 @@ export async function getLatestUpdates(
   const renderedUpdates = await Promise.all(
     latestUpdatesWithDates.map(async ({ update, date }) => {
       const { Content } = await render(update)
-      return { Content, date }
+      return {
+        Content,
+        date,
+        endDate: update.data.endDate,
+        dateLabel: update.data.dateLabel,
+      }
     }),
   )
 
