@@ -103,13 +103,19 @@ const projects = defineCollection({
 
 const updates = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/updates" }),
-  schema: z.object({
-    startDate: dateSchema.optional(),
-    endDate: dateSchema.optional(),
-    dateLabel: z.string().trim().min(1).optional(),
-  }).refine((data) => !data.startDate || !data.endDate || data.endDate >= data.startDate, {
-    error: "End date must be on or after start date",
-  }),
+  schema: z
+    .object({
+      startDate: dateSchema.optional(),
+      endDate: dateSchema.optional(),
+      dateLabel: z.string().trim().min(1).optional(),
+    })
+    .refine(
+      (data) =>
+        !data.startDate || !data.endDate || data.endDate >= data.startDate,
+      {
+        error: "End date must be on or after start date",
+      },
+    ),
 })
 
 const experience = defineCollection({
