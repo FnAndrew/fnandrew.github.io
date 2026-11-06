@@ -5,6 +5,7 @@ import type {
   PublicationConfig,
   SiteConfig,
 } from "@/types"
+import { email } from "astro:schema"
 
 export const SITE: SiteConfig = {
   title: "Ondřej Krucký",
@@ -95,10 +96,7 @@ export const PUB_CONFIG: PublicationConfig = {
 }
 
 export const FOOTER: FooterConfig = {
-  credits: true,
-  sourceCode: "https://github.com/mychiffonn/myscholar",
-  sourceContent:
-    "https://github.com/mychiffonn/myscholar/tree/main/src/content",
+  credits: false,
   footerLinks: [],
 }
 
