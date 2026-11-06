@@ -19,9 +19,6 @@ interface Props {
 const { entries, limit, itemClass } = Astro.props
 
 const sorted = [...entries].sort((a, b) => {
-  const endA = a.data.endDate?.getTime() ?? Infinity
-  const endB = b.data.endDate?.getTime() ?? Infinity
-  if (endB !== endA) return endB - endA
   return b.data.startDate.getTime() - a.data.startDate.getTime()
 })
 

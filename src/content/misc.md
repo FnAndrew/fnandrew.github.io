@@ -1,3 +1,7 @@
-- Studying Computer Technology at Jan Evangelista Purkyně University.
-- Web Project Administrator at ESN Usti.
-- Interested in computer networks, cybersecurity, 3D printing, and practical automation.
+I am interested in conversations about:
+
+- 3D printing & robotics
+- UAV (drones, planes)
+- IoT devices
+- backend and web application development;
+- collaborative software projects.

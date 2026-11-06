@@ -26,14 +26,9 @@ import {
   Content as MiscContent,
   rawContent as miscRaw,
 } from "@/content/misc.md"
-import {
-  Content as ServicesContent,
-  rawContent as servicesRaw,
-} from "@/content/services.md"
 
 import "@/styles/callout.css"
 
-const hasServices = servicesRaw().trim().length > 0
 const hasMisc = miscRaw().trim().length > 0
 
 const {
@@ -154,14 +149,6 @@ const recentPostsMetadata = await Promise.all(
     <TechStack {...techStack} />
   </Section>
 
-  {hasServices && (
-      <Section title="Services">
-        <prose-content>
-          <ServicesContent />
-        </prose-content>
-      </Section>
-    )}
-
   {hasMisc && (
       <Section title="Miscellaneous">
         <prose-content>
@@ -189,6 +176,10 @@ const recentPostsMetadata = await Promise.all(
 
   .currently-content :global(p:last-child) {
     margin-block-end: 0;
+  }
+
+  :global(.currently-content > :not(:first-child)) {
+    display: none;
   }
 
   .certification-list {

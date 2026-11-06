@@ -1,5 +1,12 @@
 [
   {
+    "title": "Drone License A1/A3",
+    "issuer": "Civil Aviation Authority (CAA-CZ)",
+    "issued": "2022-08",
+    "expires": "2027-08",
+    "skill": "Drone operation"
+  },
+  {
     "title": "CCNA: Switching, Routing, and Wireless Essentials",
     "issuer": "Cisco",
     "issued": "2024-01",
