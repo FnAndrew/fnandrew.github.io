@@ -15,7 +15,6 @@ const allProjects = await getProjects()
 const skillCounts = getProjectSkillCounts(allProjects, 1)
 const recurringSkillCounts = skillCounts.filter(({ count }) => count > 1)
 const uniqueSkillCounts = skillCounts.filter(({ count }) => count === 1)
-
 ---
 
 <CommonLayout

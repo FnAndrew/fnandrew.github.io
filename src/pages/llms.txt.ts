@@ -11,15 +11,15 @@ This file contains information about this website for AI language models.
 
 - Site URL: ${SITE.href}
 - Owner: ${PROFILE.name} - ${PROFILE.tagline}
-- Content: Academic research, blog posts, projects, and tools
+- Content: Projects, experience, certifications, and technical tools
 - Language: English
 - Last Updated: ${new Date().toISOString().split("T")[0]}
 
 ## Content Overview
 
 This website contains:
-- Academic research and publications
-- Technical blog posts and tutorials
+- Professional experience and education
+- Certifications and technical projects
 - Development tools and resources
 - Project documentation and code examples
 - Personal learning notes and insights
