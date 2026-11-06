@@ -234,6 +234,55 @@ const rawMarkdown = project.body
     font-size: var(--step--1);
   }
 
+  :global(.project-model-viewer) {
+    display: block;
+    inline-size: 100%;
+    block-size: min(42rem, 65vw);
+    min-block-size: 20rem;
+    margin-block-end: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--muted);
+  }
+
+  :global(.project-media-gallery) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-s);
+    margin-block: var(--space-l);
+  }
+
+  :global(.project-wiring) {
+    margin-block: var(--space-l);
+  }
+
+  :global(.project-wiring),
+  :global(.project-media-gallery figure) {
+    margin: 0;
+  }
+
+  :global(.project-wiring img),
+  :global(prose-content img[alt*="wiring"]),
+  :global(.project-media-gallery img) {
+    display: block;
+    inline-size: auto;
+    max-inline-size: 100%;
+    block-size: auto;
+    max-block-size: min(30rem, 70vh);
+    margin-inline: auto;
+    border: 0;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: transparent;
+  }
+
+  :global(.project-wiring figcaption),
+  :global(.project-media-gallery figcaption) {
+    margin-block-start: var(--space-2xs);
+    color: var(--muted-foreground);
+    font-size: var(--step--1);
+  }
+
   :global(.copy-project-markdown) {
     display: flex;
     justify-content: flex-end;
