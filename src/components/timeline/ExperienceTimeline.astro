@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
+import { Image } from "astro:assets"
 
 import Link from "@/components/base/Link.astro"
 import DateRange from "@/components/projects/DateRange.astro"
@@ -30,24 +31,38 @@ const displayed = typeof limit === "number" ? sorted.slice(0, limit) : sorted
 <Timeline>
   {displayed.map((entry) => (
     <TimelineItem>
-      <TimelineDate slot="date">
-        <DateRange fromDate={entry.data.startDate} toDate={entry.data.endDate} />
-      </TimelineDate>
-      <p class="experience-title">
-        <span>{entry.data.title}</span>
-        {" @ "}
-        {entry.data.orgUrl ? (
-          <Link href={entry.data.orgUrl} external underline>
-            {entry.data.org}
-          </Link>
-        ) : (
-          <span>{entry.data.org}</span>
-        )}
-        {entry.data.location && <span class="experience-location"> · {entry.data.location}</span>}
-      </p>
-      {entry.data.description && (
-        <p class:list={["experience-description", itemClass]}>{entry.data.description}</p>
-      )}
+      <div class:list={["experience-entry", { "has-image": entry.data.image }]}>
+        {entry.data.image && (
+            <Image
+              src={entry.data.image}
+              alt={entry.data.imageAlt ?? `${entry.data.org} logo`}
+              width={56}
+              height={56}
+              class="experience-image"
+              loading="lazy"
+            />
+          )}
+        <div class="experience-body">
+          <TimelineDate>
+            <DateRange fromDate={entry.data.startDate} toDate={entry.data.endDate} />
+          </TimelineDate>
+          <p class="experience-title">
+            <span>{entry.data.title}</span>
+            {" @ "}
+            {entry.data.orgUrl ? (
+              <Link href={entry.data.orgUrl} external underline>
+                {entry.data.org}
+              </Link>
+            ) : (
+              <span>{entry.data.org}</span>
+            )}
+            {entry.data.location && <span class="experience-location"> · {entry.data.location}</span>}
+          </p>
+          {entry.data.description && (
+            <p class:list={["experience-description", itemClass]}>{entry.data.description}</p>
+          )}
+        </div>
+      </div>
     </TimelineItem>
   ))}
 </Timeline>
@@ -56,6 +71,27 @@ const displayed = typeof limit === "number" ? sorted.slice(0, limit) : sorted
   .experience-title {
     font-size: var(--step--1);
     line-height: calc(var(--leading-offset) + 1em);
+  }
+
+  .experience-entry {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  .experience-image {
+    flex: none;
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: var(--muted);
+  }
+
+  .experience-body {
+    min-inline-size: 0;
+    flex: 1;
   }
 
   .experience-title > span:first-child {
@@ -71,5 +107,16 @@ const displayed = typeof limit === "number" ? sorted.slice(0, limit) : sorted
     margin-block-start: var(--space-3xs);
     font-size: var(--step--1);
     line-height: calc(var(--leading-offset) + 1em);
+  }
+
+  @media (width < 40rem) {
+    .experience-entry {
+      gap: var(--space-xs);
+    }
+
+    .experience-image {
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+    }
   }
 </style>

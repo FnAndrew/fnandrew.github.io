@@ -45,6 +45,8 @@ release: "https://github.com/username/synthetic-control/releases/tag/v1.0.0"
 | --- | --- | --- | --- | --- |
 | `title` | String | ✅ | The title of the project |  |
 | `description` | String | ❌ | Brief project description (max 100 characters) | Used in project cards; falls back to content |
+| `image` | Image | ❌ | Local project cover or preview image | Relative path such as `./assets/project-cover.png` |
+| `imageAlt` | String | ❌ | Alternative text for the project image (max 160 characters) | Used for accessible image descriptions |
 | `fromDate` | Date | ❌ | Start date of the project | YYYY-MM or YYYY-MM-DD format |
 | `toDate` | Date | ❌ | End date of the project | YYYY-MM or YYYY-MM-DD format. Must be ≥ fromDate |
 | `code` | URL | ❌ | Link to source code repository | Must be a valid URL |

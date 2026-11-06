@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import type { CollectionEntry } from "astro:content"
 
 import { getProjectLinks } from "@/lib/projects"
@@ -11,7 +12,18 @@ interface Props {
 }
 
 const { project } = Astro.props
-const { title, selected, code, doc, paper, url, release, skills } = project.data
+const {
+  title,
+  selected,
+  image,
+  imageAlt,
+  code,
+  doc,
+  paper,
+  url,
+  release,
+  skills,
+} = project.data
 
 const links = getProjectLinks(code, doc, paper, url, release)
 
@@ -25,7 +37,19 @@ const titleHref = hasDetailPage ? `/projects/${project.id}` : primaryLink?.href
 <article
   class:list={["project-row", { "is-highlighted": selected }]}
   data-project-skills={skills.map((skill) => slugify(skill)).join(",")}
+  data-has-image={image ? "true" : undefined}
 >
+  {image && (
+      <Image
+        src={image}
+        alt={imageAlt ?? `${title} preview`}
+        width={320}
+        height={180}
+        sizes="(max-width: 640px) 100vw, 320px"
+        class="project-row-image"
+        loading="lazy"
+      />
+    )}
   <div class="project-row-head">
     <h3 class="project-row-title">
       {selected && <span class="sr-only">Featured project: </span>}
@@ -60,6 +84,7 @@ const titleHref = hasDetailPage ? `/projects/${project.id}` : primaryLink?.href
 
 <style>
   .project-row {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-3xs);
@@ -127,6 +152,32 @@ const titleHref = hasDetailPage ? `/projects/${project.id}` : primaryLink?.href
     list-style: none;
   }
 
+  .project-row[data-has-image="true"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(9rem, 18rem);
+    align-items: center;
+    column-gap: var(--space-s);
+  }
+
+  .project-row-image {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    opacity: 0.9;
+    transition:
+      opacity var(--motion-duration) var(--motion-ease),
+      transform var(--motion-duration) var(--motion-ease);
+  }
+
+  .project-row:hover .project-row-image,
+  .project-row:focus-within .project-row-image {
+    opacity: 1;
+    transform: translateY(-0.15rem);
+  }
+
   .project-row-link {
     display: inline-flex;
     align-items: center;
@@ -152,5 +203,15 @@ const titleHref = hasDetailPage ? `/projects/${project.id}` : primaryLink?.href
     color: var(--muted-foreground);
     font-size: var(--step--1);
     opacity: 0.75;
+  }
+
+  @media (width < 40rem) {
+    .project-row[data-has-image="true"] {
+      display: flex;
+    }
+
+    .project-row-image {
+      order: -1;
+    }
   }
 </style>

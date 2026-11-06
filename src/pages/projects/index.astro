@@ -1,5 +1,4 @@
 ---
-import { FOOTER, PROFILE } from "@site-config"
 import techStack from "@/content/tech-stack.json"
 import { formatCount } from "@/lib/plural"
 import { getProjectSkillCounts, getProjects } from "@/lib/projects"
@@ -7,8 +6,6 @@ import CommonLayout from "@/layouts/CommonLayout.astro"
 import Icon from "@/components/base/Icon.astro"
 import TaxonomyChip from "@/components/base/TaxonomyChip.astro"
 import Section from "@/components/layout/Section.astro"
-import GithubActivity from "@/components/projects/GithubActivity.astro"
-import GithubCard from "@/components/projects/GithubCard.astro"
 import ProjectRow from "@/components/projects/ProjectRow.astro"
 import TechStack from "@/components/projects/TechStack.astro"
 
@@ -19,12 +16,6 @@ const skillCounts = getProjectSkillCounts(allProjects, 1)
 const recurringSkillCounts = skillCounts.filter(({ count }) => count > 1)
 const uniqueSkillCounts = skillCounts.filter(({ count }) => count === 1)
 
-const githubRepo = FOOTER.sourceCode
-const githubProfile =
-  typeof PROFILE.links.github === "object"
-    ? PROFILE.links.github?.href
-    : PROFILE.links.github
-const githubUsername = githubProfile?.replace(/\/$/, "").split("/").pop()
 ---
 
 <CommonLayout
@@ -115,12 +106,6 @@ const githubUsername = githubProfile?.replace(/\/$/, "").split("/").pop()
     <Section title="Tech Stack" class="tech-stack-section">
       <TechStack {...techStack} />
     </Section>
-    {githubRepo && (
-        <Section title="On GitHub" class="github-showcase">
-          <GithubCard repo={githubRepo} contributor={githubUsername} />
-        </Section>
-      )}
-    {githubProfile && <GithubActivity githubUrl={githubProfile} />}
   </div>
 </CommonLayout>
 

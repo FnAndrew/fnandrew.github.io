@@ -71,12 +71,15 @@ const people = defineCollection({
 
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/!(*README).md" }),
-  schema: z
-    .object({
+  schema: ({ image }) =>
+    z
+      .object({
       title: z.string().max(75),
       selected: z.boolean().default(false),
       fromDate: yearMonthDateSchema.optional(),
       toDate: yearMonthDateSchema.optional(),
+      image: image().optional(),
+      imageAlt: z.string().max(160).optional(),
       code: z.url().optional(),
       doc: z.url().optional(),
       paper: z.url().optional(),
@@ -104,16 +107,19 @@ const updates = defineCollection({
 
 const experience = defineCollection({
   loader: file("./src/content/experience.json"),
-  schema: z.object({
-    category: z.enum(["work", "education", "volunteering"]),
-    title: z.string(),
-    org: z.string(),
-    orgUrl: z.url().optional(),
-    startDate: yearMonthDateSchema,
-    endDate: yearMonthDateSchema.optional(),
-    location: z.string().optional(),
-    description: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      category: z.enum(["work", "education", "volunteering"]),
+      title: z.string(),
+      org: z.string(),
+      orgUrl: z.url().optional(),
+      image: image().optional(),
+      imageAlt: z.string().max(160).optional(),
+      startDate: yearMonthDateSchema,
+      endDate: yearMonthDateSchema.optional(),
+      location: z.string().optional(),
+      description: z.string().optional(),
+    }),
 })
 
 export const collections = { blog, experience, people, projects, updates }

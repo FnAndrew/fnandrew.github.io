@@ -13,7 +13,7 @@ Most site content lives in `src/content/`.
 - `src/content/blog/`: blog posts and subposts.
 - `src/content/projects/`: project cards and project detail pages.
 - `src/content/updates/`: timeline updates.
-- `src/content/experience.json`: education, research, and teaching timeline.
+- `src/content/experience.json`: work, education, and volunteering timeline.
 - `src/content/people.toml`: authors used by blog posts.
 - `src/content/publications/main.bib`: BibTeX source for `/publications`.
 
@@ -35,6 +35,18 @@ draft: false
 Subposts are folders under `src/content/blog/` with an `index.md` parent and
 ordered child `.md` files. Prefix a Markdown filename with `_` if you do not want
 the loader to collect it.
+
+Experience entries may include an institution icon. Store the image in the
+same content folder and reference it with a relative path:
+
+```json
+{
+  "title": "IT Intern",
+  "org": "Example organisation",
+  "image": "./assets/example-organisation.png",
+  "imageAlt": "Example organisation logo"
+}
+```
 
 ## 2. Replace public assets
 

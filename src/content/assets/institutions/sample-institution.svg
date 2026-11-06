@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Sample institution logo</title>
+  <desc id="desc">A neutral placeholder logo for an institution.</desc>
+  <rect width="512" height="512" rx="48" fill="#27342d"/>
+  <rect x="64" y="64" width="384" height="384" rx="28" fill="#a8df67"/>
+  <path d="M150 150h212v64H150zM150 246h212v64H150zM150 342h116v20H150z" fill="#27342d"/>
+  <circle cx="376" cy="352" r="34" fill="#27342d"/>
+</svg>
