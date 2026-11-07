@@ -177,43 +177,51 @@ const structuredData = {
       document.documentElement.classList.remove("image-lightbox-open")
     }
 
-    document.addEventListener("click", (event) => {
-      if (!(event.target instanceof Element)) return
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (!(event.target instanceof Element)) return
 
-      const lightboxImage = event.target.closest(".image-lightbox-image")
-      if (lightboxImage || event.target.closest(".image-lightbox")) {
+        const lightboxImage = event.target.closest(".image-lightbox-image")
+        if (lightboxImage || event.target.closest(".image-lightbox")) {
+          event.preventDefault()
+          closeImageZoom()
+          return
+        }
+
+        const image = event.target.closest("img")
+        if (
+          !image ||
+          !image.closest("main") ||
+          image.closest("a") ||
+          image.closest("[data-clickable]") ||
+          image.hasAttribute("data-no-zoom")
+        ) {
+          return
+        }
+
         event.preventDefault()
         closeImageZoom()
-        return
-      }
 
-      const image = event.target.closest("img")
-      if (
-        !image ||
-        !image.closest("main") ||
-        image.closest("a") ||
-        image.closest("[data-clickable]") ||
-        image.hasAttribute("data-no-zoom")
-      ) {
-        return
-      }
+        const overlay = document.createElement("div")
+        overlay.className = "image-lightbox"
+        const enlargedImage = image.cloneNode(true)
+        enlargedImage.className = "image-lightbox-image"
+        enlargedImage.removeAttribute("loading")
+        overlay.append(enlargedImage)
+        document.body.append(overlay)
+        document.documentElement.classList.add("image-lightbox-open")
+      },
+      true,
+    )
 
-      event.preventDefault()
-      closeImageZoom()
-
-      const overlay = document.createElement("div")
-      overlay.className = "image-lightbox"
-      const enlargedImage = image.cloneNode(true)
-      enlargedImage.className = "image-lightbox-image"
-      enlargedImage.removeAttribute("loading")
-      overlay.append(enlargedImage)
-      document.body.append(overlay)
-      document.documentElement.classList.add("image-lightbox-open")
-    }, true)
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeImageZoom()
-    }, true)
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape") closeImageZoom()
+      },
+      true,
+    )
   </script>
 
   <slot />
