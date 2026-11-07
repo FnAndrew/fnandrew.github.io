@@ -2,7 +2,7 @@
 title: Projekt Turex
 description: Completed Raspberry Pi mecanum robot with omnidirectional drive, rotating turret, and isolated power rails.
 fromDate: 2026-10
-code: https://github.com/FnAndrew/turret-rpi
+code: https://github.com/FnAndrew/turex
 types:
   - product
   - tool
@@ -19,7 +19,7 @@ selected: true
 
 ## Overview
 
-**Turex** is a completed autonomous and remote-controlled combat robot built
+**Turex** is a completed remote-controlled combat robot built
 around a Raspberry Pi and an omnidirectional Mecanum drive. It combines custom
 mechanics, electronics, and asynchronous Python software in one compact
 cyberphysical system.
@@ -42,7 +42,7 @@ servo power spikes in mind.
 
 ## Hardware architecture
 
-The robot uses a 2S Li-ion battery pack with a BMS and three separate power
+The robot uses a 2S Li-ion battery pack and three separate power
 paths. This prevents high-current motors and firing or servo loads from causing
 unstable voltage on the Raspberry Pi.
 
@@ -74,22 +74,19 @@ targeting, firing, and safety logic.
 Additional photos of the finished robot and its main subsystems will be added
 here later.
 
-<!-- Temporarily hidden until the three project images are available.
-<div class="project-media-gallery">
-  <figure>
-    <img src="/img/projects/turex/main_robot.png" alt="Complete Turex robot assembly" loading="lazy" />
-    <figcaption>Complete robot assembly with the rotating turret.</figcaption>
-  </figure>
-  <figure>
-    <img src="/img/projects/turex/chassis_bottom.png" alt="Turex lower chassis and electronics" loading="lazy" />
-    <figcaption>Lower chassis with the Raspberry Pi, motor drivers, and power rails.</figcaption>
-  </figure>
-  <figure>
-    <img src="/img/projects/turex/turret_assembly.png" alt="Turex turret and upper bearing assembly" loading="lazy" />
-    <figcaption>Turret assembly with the slip ring, firing mechanism, and tilt servo.</figcaption>
-  </figure>
-</div>
--->
+![Complete Turex robot assembly](./assets/turex-showcase.png)
+
+_Complete robot assembly with the rotating turret._
+
+![Turex lower chassis and electronics](./assets/turex-chassis.png)
+
+_Lower chassis with the Raspberry Pi, motor drivers, and power rails._
+
+![Turex turret and upper bearing assembly](./assets/turex-turret.png)
+
+![Turex turret and upper bearing assembly](./assets/turex-turret-side.png)
+
+_Turret assembly with the slip ring, firing mechanism, and tilt servo._
 
 ## Mechanical design
 

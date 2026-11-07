@@ -170,86 +170,50 @@ const structuredData = {
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="sitemap" href="/sitemap-index.xml">
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title={SITE.title}
-    href={`${SITE.href}rss.xml`}
-  >
+  <link rel="stylesheet" href="/styles/zoom.css">
+  <script is:inline>
+    function closeImageZoom() {
+      document.querySelector(".image-lightbox")?.remove()
+      document.documentElement.classList.remove("image-lightbox-open")
+    }
 
-  <ClientRouter />
-  <script is:inline define:vars={{ siteLocale: SITE.locale.lang }}>
-    window.__SITE_LOCALE__ = siteLocale
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return
 
-    function loadZoomAssets() {
-      if (!document.querySelector("link[data-medium-zoom-styles]")) {
-        const styles = document.createElement("link")
-        styles.rel = "stylesheet"
-        styles.href = "/styles/zoom.css"
-        styles.dataset.mediumZoomStyles = "true"
-        document.head.append(styles)
+      const lightboxImage = event.target.closest(".image-lightbox-image")
+      if (lightboxImage || event.target.closest(".image-lightbox")) {
+        event.preventDefault()
+        closeImageZoom()
+        return
       }
 
-      if (window.mediumZoom) return Promise.resolve()
-      if (window.__mediumZoomPromise) return window.__mediumZoomPromise
-
-      /* A rejected promise left in place would be awaited by every later
-         attempt, so one offline moment would disable zoom for the rest of the
-         session even after the network recovers. Clear it, and drop the dead
-         script tag, so the next navigation can retry. */
-      window.__mediumZoomPromise = new Promise((resolve, reject) => {
-        const script = document.createElement("script")
-        script.src =
-          "https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"
-        script.async = true
-        script.addEventListener("load", resolve, { once: true })
-        script.addEventListener(
-          "error",
-          () => {
-            script.remove()
-            reject(new Error("medium-zoom failed to load"))
-          },
-          { once: true },
-        )
-        document.head.append(script)
-      }).catch((error) => {
-        window.__mediumZoomPromise = null
-        throw error
-      })
-
-      return window.__mediumZoomPromise
-    }
-
-    /* Kept identical to the cursor rule in /styles/zoom.css. Card.astro sets
-       data-clickable whenever it renders its .card-overlay link, and that
-       overlay takes the click, so images beneath one can never be zoomed. */
-    const ZOOMABLE_IMAGES = "main img:not(a img):not([data-clickable] img)"
-
-    async function initializeImageZoom() {
-      const images = document.querySelectorAll(ZOOMABLE_IMAGES)
-      if (!images.length) return
-
-      try {
-        await loadZoomAssets()
-        window.__mediumZoomInstance?.detach()
-        window.__mediumZoomInstance = window.mediumZoom(images, {
-          margin: 24,
-          scrollOffset: 40,
-        })
-      } catch {
-        // Images remain fully usable if the optional enhancement cannot load.
+      const image = event.target.closest("img")
+      if (
+        !image ||
+        !image.closest("main") ||
+        image.closest("a") ||
+        image.closest("[data-clickable]") ||
+        image.hasAttribute("data-no-zoom")
+      ) {
+        return
       }
-    }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initializeImageZoom, {
-        once: true,
-      })
-    } else {
-      initializeImageZoom()
-    }
-    document.addEventListener("astro:after-swap", initializeImageZoom)
+      event.preventDefault()
+      closeImageZoom()
+
+      const overlay = document.createElement("div")
+      overlay.className = "image-lightbox"
+      const enlargedImage = image.cloneNode(true)
+      enlargedImage.className = "image-lightbox-image"
+      enlargedImage.removeAttribute("loading")
+      overlay.append(enlargedImage)
+      document.body.append(overlay)
+      document.documentElement.classList.add("image-lightbox-open")
+    }, true)
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeImageZoom()
+    }, true)
   </script>
 
   <slot />

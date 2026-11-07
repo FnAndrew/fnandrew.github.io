@@ -1,0 +1,98 @@
+diff --git a/public/styles/zoom.css b/public/styles/zoom.css
+index 26df2f9..12c7168 100644
+--- a/public/styles/zoom.css
++++ b/public/styles/zoom.css
+@@ -17,9 +17,22 @@ main img {
+   max-width: 100%;
+ }
+ 
+-/* Ensure medium-zoom images respect max-width */
++.medium-zoom-overlay {
++  position: fixed;
++  inset: 0;
++  opacity: 0;
++  transition: opacity 0.3s ease;
++  will-change: opacity;
++}
++
+ .medium-zoom-image {
+-  max-width: 100%;
++  cursor: zoom-in;
++  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) !important;
++  will-change: transform;
++}
++
++.medium-zoom-image--hidden {
++  visibility: hidden;
+ }
+ 
+ /* Medium Zoom overlay styling.
+@@ -33,6 +46,15 @@ main img {
+ }
+ 
+ .medium-zoom-image--opened {
++  position: fixed !important;
++  inset: 24px !important;
++  inline-size: calc(100vw - 48px) !important;
++  block-size: calc(100vh - 48px) !important;
++  max-width: none !important;
++  max-height: none !important;
++  margin: 0 !important;
++  object-fit: contain;
++  transform: none !important;
+   z-index: 1000;
+   cursor: zoom-out;
+ }
+diff --git a/src/components/layout/Head.astro b/src/components/layout/Head.astro
+index 7a212a6..f9b9b76 100644
+--- a/src/components/layout/Head.astro
++++ b/src/components/layout/Head.astro
+@@ -224,7 +224,8 @@ const structuredData = {
+     /* Kept identical to the cursor rule in /styles/zoom.css. Card.astro sets
+        data-clickable whenever it renders its .card-overlay link, and that
+        overlay takes the click, so images beneath one can never be zoomed. */
+-    const ZOOMABLE_IMAGES = "main img:not(a img):not([data-clickable] img)"
++    const ZOOMABLE_IMAGES =
++      "main img:not(a img):not([data-clickable] img):not([data-no-zoom])"
+ 
+     async function initializeImageZoom() {
+       const images = document.querySelectorAll(ZOOMABLE_IMAGES)
+@@ -235,6 +236,12 @@ const structuredData = {
+         window.__mediumZoomInstance?.detach()
+         window.__mediumZoomInstance = window.mediumZoom(images, {
+           margin: 24,
++          container: {
++            top: 24,
++            right: 24,
++            bottom: 24,
++            left: 24,
++          },
+           scrollOffset: 40,
+         })
+       } catch {
+@@ -242,6 +249,25 @@ const structuredData = {
+       }
+     }
+ 
++    document.addEventListener("click", (event) => {
++      if (!(event.target instanceof Element)) return
++      const zoomTarget = event.target.closest(
++        ".medium-zoom-image--opened, .medium-zoom-overlay",
++      )
++      if (zoomTarget) {
++        event.preventDefault()
++        event.stopPropagation()
++        window.__mediumZoomInstance?.close()
++      }
++    }, true)
++
++    document.addEventListener("keydown", (event) => {
++      if (event.key === "Escape") {
++        event.preventDefault()
++        window.__mediumZoomInstance?.close()
++      }
++    }, true)
++
+     if (document.readyState === "loading") {
+       document.addEventListener("DOMContentLoaded", initializeImageZoom, {
+         once: true,
