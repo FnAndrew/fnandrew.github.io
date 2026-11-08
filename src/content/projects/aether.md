@@ -60,7 +60,25 @@ IoT data collection.
 - BME280, airspeed, GPS, and compass sensors for environmental and navigation
   data.
 
+## Current status
+
+The project is currently in the planning phase. The bill of materials is being
+assembled, and the Stork aircraft files have been purchased. The next step is
+to finalize the system design and determine how the aircraft, avionics, power
+system, and communications hardware will be integrated.
+
 ## DevLog
 
-This section will contain development notes, experiments, test results, and
+This section contains development notes, experiments, test results, and
 lessons learned while building Project Aether.
+
+### 20/10/2026 - Stork files
+
+![Stork in Blender with solar panels](./assets/aether-stork-top-wSP.png)
+_Stork plane model with first solar panels placement (Blender)_
+
+For this project, I selected the [Stork](https://flightory.com/product/stork/)
+glider from [Flightory](https://flightory.com/) ($29.99). The image above shows
+the aircraft model rendered in Blender, along with an initial concept for solar
+panel placement. The panels are intended to extend the aircraft's endurance by
+providing supplemental power during flight.

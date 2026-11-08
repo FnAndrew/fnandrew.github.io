@@ -12,6 +12,7 @@ import { headingNamespace } from "./src/lib/heading-namespace"
 import { headingAnchors } from "./src/lib/heading-anchors"
 import { satteriSidenotes } from "./src/plugins/satteri-sidenotes"
 import { normalizeHeadings } from "./src/plugins/satteri-normalize-headings"
+import { videoLinks } from "./src/plugins/satteri-video-links"
 
 export default defineConfig({
   site: "https://kruckyondrej.cz",
@@ -54,6 +55,7 @@ export default defineConfig({
         ...satteriSidenotes(),
         headingNamespace(),
         headingAnchors(),
+        videoLinks,
       ],
     }),
   },

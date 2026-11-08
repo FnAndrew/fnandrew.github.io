@@ -1,7 +1,8 @@
 ---
-title: Projekt Turex
+title: Project Turex
 description: Completed Raspberry Pi mecanum robot with omnidirectional drive, rotating turret, and isolated power rails.
 fromDate: 2026-10
+image: ./assets/turex-showcase.png
 code: https://github.com/FnAndrew/turex
 types:
   - product
@@ -58,7 +59,7 @@ The main hardware components are:
 - MG996R pan servo and MG90S tilt servo.
 - IRF520 or AOD4184 MOSFET module for firing control.
 
-## Software architecture
+### Software architecture
 
 The control software is written in Python and uses `asyncio` with `gpiozero` to
 run independent hardware tasks without blocking one another. The application is
@@ -69,47 +70,80 @@ Remote control is supported through ExpressLRS/CRSF and an Xbox controller.
 The main state machine coordinates these inputs with the robot's movement,
 targeting, firing, and safety logic.
 
-## Media and assembly
+## Development Process
 
-Additional photos of the finished robot and its main subsystems will be added
-here later.
+From initial concepts to a working robotic platform, Turex was built through
+mechanical experiments, electronics work, and repeated practical tests. The
+three stages below show how separate parts gradually became one system.
 
-![Complete Turex robot assembly](./assets/turex-showcase.png)
+### 01 / Mechanical Design & Prototyping
 
-_Complete robot assembly with the rotating turret._
+The development started with the mechanical design and gradual construction of
+the platform. Custom 3D-printed components allowed individual mechanisms to be
+tested, adjusted, and improved before they were integrated into the robot.
 
-![Turex lower chassis and electronics](./assets/turex-chassis.png)
+![Turex mechanical prototype with electronics and turret drive](./assets/turex-chassis.png)
 
-_Lower chassis with the Raspberry Pi, motor drivers, and power rails._
+_A working prototype exposes the mechanical arrangement and the practical
+constraints of fitting the electronics into the printed chassis._
 
-![Turex turret and upper bearing assembly](./assets/turex-turret.png)
+![Turex printed base of the robot](./assets/turex-chassis-rl-gemini.jpeg)
 
-![Turex turret and upper bearing assembly](./assets/turex-turret-side.png)
+_Turning the CAD design into a real chassis through 3D printing._
 
-_Turret assembly with the slip ring, firing mechanism, and tilt servo._
+CAD · 3D printing · Mechanical design
 
-## Mechanical design
+<!-- Add one representative 3D-print timelapse here when the media file is available. -->
+
+### 02 / Electronics & Hardware Integration
+
+Alongside the mechanical development, the electronic architecture was gradually
+assembled. This involved preparing the Raspberry Pi, soldering connections,
+configuring power distribution, and integrating the motor drivers and control
+components.
+
+![Turex wiring in real life](./assets/turex-wiring-rl.jpg)
+
+_Connection and testing of all the parts before integrating them into the chassis._
+
+Raspberry Pi · Electronics · Power management
+
+<!-- Add the Raspberry Pi soldering photograph -->
+
+### 03 / Testing & System Integration
+
+Individual subsystems were tested progressively before being integrated into the
+complete platform. Mechanical movement, motor control, turret operation, firing
+feedback, and remote input were verified through repeated practical tests.
+
+[![Play turret integration test video](/video/turex-thumbnail-turet-pan2.jpg)](/video/turex-video-turet-pan.mp4)
+
+_Integration testing verifies that the rotating assembly, slip ring, wiring,
+and actuator mounts can operate together._
+
+Testing · Python · System integration
+
+
+## Software & Technologies
+
+The control software is written in Python and uses `asyncio` with `gpiozero` to
+run independent hardware tasks without blocking one another. The application is
+split into hardware modules for the drivetrain, turret, firing mechanism,
+lighting, and input handling.
 
 The chassis and mechanical assemblies were designed in **Autodesk Fusion** and
 **3D printed** on a BambuLab P1S. The custom PLA chassis uses a rigid baseplate,
-modular mounts, and a gyroid infill where appropriate. The upper assembly
-integrates the turret bearing, slip ring, firing mechanism, and tilt servo.
+modular mounts, and a gyroid infill where appropriate.
 
-## Project structure
+Python · Raspberry Pi · asyncio · gpiozero · Fusion · 3D printing
 
-| Area | Contents |
-| --- | --- |
-| `core/` | Main state machine and module coordinator |
-| `hardware/` | Drivetrain, turret, firing, and lighting modules |
-| `inputs/` | CRSF, ExpressLRS, and Xbox controller input |
-| `config.py` | GPIO pin assignments and timing constants |
-| `main.py` | Asyncio application entry point |
-| `docs/` | Schematics, CAD models, and hardware documentation |
-| `media/` | Project photos and demonstration media |
+## Final build
 
-## Result
+![Complete Turex robot assembly](./assets/turex-showcase-rl-gemini.jpeg)
 
-Turex demonstrates how a Raspberry Pi can coordinate mechanical systems with
-different timing and power requirements in a single responsive robot. The
-project combines embedded Python, electronics, motor control, remote input, and
-3D-printed mechanical design into a finished working platform.
+_Complete robot assembly with the rotating turret. (edited)_
+
+<!-- The final demonstration should show the completed robot operating, ideally with
+both Mecanum movement and turret control visible in the same clip. -->
+
+<!-- Add the final robot demonstration video here when the media file is available. -->
