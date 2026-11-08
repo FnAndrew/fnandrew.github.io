@@ -116,10 +116,9 @@ Individual subsystems were tested progressively before being integrated into the
 complete platform. Mechanical movement, motor control, turret operation, firing
 feedback, and remote input were verified through repeated practical tests.
 
-[![Play turret integration test video](/video/turex-thumbnail-turet-pan2.jpg)](/video/turex-video-turet-pan.mp4)
+[![Play turret tilt integration test video](/video/turex-thumbnail-turret-tilt.jpg)](/video/turex-video-turret-tilt.mp4)
 
-_Integration testing verifies that the rotating assembly, slip ring, wiring,
-and actuator mounts can operate together._
+_Manual testing of the turret tilt mechanism._
 
 Testing · Python · System integration
 

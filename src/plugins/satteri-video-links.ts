@@ -27,7 +27,7 @@ export const videoLinks = defineHastPlugin({
         return
       }
 
-      const poster = "/video/turex-thumbnail-turet-pan.jpg"
+      const poster = "/video/turex-thumbnail-turret-tilt-poster.jpg"
       ctx.replaceNode(node, {
         type: "element",
         tagName: "video",
