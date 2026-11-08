@@ -2,7 +2,7 @@
 title: Project Turex
 description: Completed Raspberry Pi mecanum robot with omnidirectional drive, rotating turret, and isolated power rails.
 fromDate: 2026-10
-image: ./assets/turex-showcase.png
+image: ./assets/turex/turex-showcase.png
 code: https://github.com/FnAndrew/turex
 types:
   - product
@@ -47,7 +47,7 @@ The robot uses a 2S Li-ion battery pack and three separate power
 paths. This prevents high-current motors and firing or servo loads from causing
 unstable voltage on the Raspberry Pi.
 
-![Turex wiring and power distribution schema](./assets/turex-wiring.svg)
+![Turex wiring and power distribution schema](./assets/turex/turex-wiring.svg)
 
 The main hardware components are:
 
@@ -82,12 +82,12 @@ The development started with the mechanical design and gradual construction of
 the platform. Custom 3D-printed components allowed individual mechanisms to be
 tested, adjusted, and improved before they were integrated into the robot.
 
-![Turex mechanical prototype with electronics and turret drive](./assets/turex-chassis.png)
+![Turex mechanical prototype with electronics and turret drive](./assets/turex/turex-chassis.png)
 
 _A working prototype exposes the mechanical arrangement and the practical
 constraints of fitting the electronics into the printed chassis._
 
-![Turex printed base of the robot](./assets/turex-chassis-rl-gemini.jpeg)
+![Turex printed base of the robot](./assets/turex/turex-chassis-rl-gemini.jpeg)
 
 _Turning the CAD design into a real chassis through 3D printing._
 
@@ -102,7 +102,7 @@ assembled. This involved preparing the Raspberry Pi, soldering connections,
 configuring power distribution, and integrating the motor drivers and control
 components.
 
-![Turex wiring in real life](./assets/turex-wiring-rl.jpg)
+![Turex wiring in real life](./assets/turex/turex-wiring-rl.jpg)
 
 _Connection and testing of all the parts before integrating them into the chassis._
 
@@ -139,7 +139,7 @@ Python · Raspberry Pi · asyncio · gpiozero · Fusion · 3D printing
 
 ## Final build
 
-![Complete Turex robot assembly](./assets/turex-showcase-rl-gemini.jpeg)
+![Complete Turex robot assembly](./assets/turex/turex-showcase-rl-gemini.jpeg)
 
 _Complete robot assembly with the rotating turret. (edited)_
 

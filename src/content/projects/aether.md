@@ -74,7 +74,7 @@ lessons learned while building Project Aether.
 
 ### 20/10/2026 - Stork files
 
-![Stork in Blender with solar panels](./assets/aether-stork-top-wSP.png)
+![Stork in Blender with solar panels](./assets/aether/aether-stork-top-wSP.png)
 _Stork plane model with first solar panels placement (Blender)_
 
 For this project, I selected the [Stork](https://flightory.com/product/stork/)
