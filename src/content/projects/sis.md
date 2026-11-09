@@ -3,7 +3,7 @@ title: School Information System
 description: Full-stack school information system built with Next.js, FastAPI, PostgreSQL, and Azure.
 fromDate: 2024-09
 toDate: 2025-03
-image: ./assets/sis/project-sis.jpeg
+image: ./assets/sis/sis-thumbnail.png
 imageAlt: Landing page preview of the School Information System
 types:
   - product

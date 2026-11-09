@@ -10,6 +10,8 @@ skills:
   - Decoration
 ---
 
+## 3D printers
+
 Durring my 3D carrer I've been ussing totally four 3D printer models:
 
 - BambuLab P1S with AMS
@@ -17,9 +19,7 @@ Durring my 3D carrer I've been ussing totally four 3D printer models:
 - Two Trees Bluer
 - Anycubic Photon Mono _(resin)_
 
-## Prints
-
-### Interactive Railway Signal
+## Interactive Railway Signal
 
 This project started as a custom gift for a train driver. Instead of making a
 static model, I decided to build a working railway signal with individually
