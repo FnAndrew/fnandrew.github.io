@@ -1,3 +1,3 @@
 I am a curious and practical person who enjoys understanding how things work and turning ideas into working solutions. I am interested in technology that connects software with the physical world, from **3D printing** and mechanics to **IoT** systems and robotics.
 
-My work and projects are driven by a hands-on approach, a willingness to learn, and an  interest in exploring how hardware, software, and how it can work together.
+My work and projects are driven by a hands-on approach, a willingness to learn, and an  interest in exploring how hardware and software can work together.
