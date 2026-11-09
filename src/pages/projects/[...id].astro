@@ -283,6 +283,43 @@ const rawMarkdown = project.body
     font-size: var(--step--1);
   }
 
+  :global(prose-content table:has(img)) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-s);
+    margin-block: var(--space-l);
+    border: 0;
+  }
+
+  :global(prose-content table:has(img) thead),
+  :global(prose-content table:has(img) tbody),
+  :global(prose-content table:has(img) tr) {
+    display: contents;
+  }
+
+  :global(prose-content table:has(img) td) {
+    padding: 0;
+    border: 0;
+  }
+
+  :global(prose-content table:has(img) td:empty) {
+    display: none;
+  }
+
+  :global(prose-content table:has(img) img) {
+    inline-size: 100%;
+    max-block-size: none;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--muted);
+  }
+
+  @media (width >= 40rem) {
+    :global(prose-content table:has(img)) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   :global(.copy-project-markdown) {
     display: flex;
     justify-content: flex-end;
